@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "ying.app",
+    "sha256_cert_fingerprints":
+    ["C8:AC:F0:EE:D3:72:D2:EE:8D:D0:59:DB:B7:77:0D:74:B4:CE:7B:AE:2E:AB:5A:91:11:38:3C:80:D1:0E:69:39"]
+  }
+}]
