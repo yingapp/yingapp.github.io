@@ -8,25 +8,12 @@
   <style>
     body {
       background-color: aquamarine;
+      display: grid;
+      height: 100vh;
+      margin: 0;
+      place-items: center center;
     }
 
-    /* Multi-column layout for screens wider than 600px */
-    @media (min-width: 600px) {
-      .list {
-        display: flex;
-        flex-wrap: wrap;
-        /* Allow cards to wrap to multiple lines */
-      }
-    }
-
-    /* Single-column layout for screens smaller than 600px */
-    @media (max-width: 600px) {
-      .list {
-        display: flex;
-        flex-direction: column;
-        /* Arrange cards in a single column */
-      }
-    }
 
     .container {
       min-width: 300px;
@@ -36,6 +23,7 @@
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       padding: 20px;
+      margin: 20px;
     }
 
     .image {
