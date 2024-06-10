@@ -5,14 +5,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>营应用</title>
+  <style>
+    body {
+      background-color: aquamarine;
+    }
+
+    /* Multi-column layout for screens wider than 600px */
+    @media (min-width: 600px) {
+      .list {
+        display: flex;
+        flex-wrap: wrap;
+        /* Allow cards to wrap to multiple lines */
+      }
+    }
+
+    /* Single-column layout for screens smaller than 600px */
+    @media (max-width: 600px) {
+      .list {
+        display: flex;
+        flex-direction: column;
+        /* Arrange cards in a single column */
+      }
+    }
+
+    .container {
+      min-width: 300px;
+      height: 200px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .image {
+      float: left;
+      width: 80px;
+      height: auto;
+    }
+
+    .title-description {
+      overflow: hidden;
+    }
+
+    .title {
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
-一键清理正在运行的应用，
-<a href="https://cdn.jsdelivr.net/gh/yingapp/resources@main/stopapps.apk">清空</a>
-<br/>
-强制声音输出模式，扬声器损坏后，强制通过听筒播放声音，
-<a href="https://cdn.jsdelivr.net/gh/yingapp/resources@main/audiomode.apk">声音模式</a>
+  <script>
+    const base = 'https://cdn.jsdelivr.net/gh/yingapp/resources@main/'
+    const apps = {
+      stopapps: {
+        title: '清空',
+        descript: '一键清理正在运行的应用'
+      },
+      audiomode: {
+        title: '声音模式',
+        descript: '强制声音输出模式，扬声器损坏后，强制通过听筒播放声音'
+      },
+    }
+    const root = document.createElement('div')
+    root.className = 'list'
+    let s = ''
+    Object.entries(apps).forEach(([name, app]) => {
+      s += `<div class="container">
+              <img src="${base + name + '.png'}" alt="Image description" class="image">
+              <div class="title-description">
+                <h3 class="title">${app.title}</h3>
+                <p class="description">${app.descript}</p>
+                 <a href="${base + name + '.apk'}">下载</a>
+              </div>
+            </div>`
+    })
+    root.innerHTML = s
+    document.body.append(root)
+  </script>
 </body>
 
 </html>
